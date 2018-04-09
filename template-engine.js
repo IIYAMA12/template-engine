@@ -1,4 +1,11 @@
 const templateEngine = (function () {
+
+    const utility = {
+        isElement (element) {
+            return element instanceof Element;
+        }
+    };
+
     const templateEngine = {
         render: function (template, parentElement, data) {
             if (template != undefined && template.length > 0) {
@@ -63,7 +70,7 @@ const templateEngine = (function () {
 
                                 if (elementsOrDataWithElement.length > 0) {
                                     const elementsWithData = [];
-                                    const isElement = app.utility.isElement;
+                                    const isElement = utility.isElement;
                                     for (let i = 0; i < elementsOrDataWithElement.length; i++) {
                                         const elementOrDataWithElement = elementsOrDataWithElement[i];
                                         if (isElement(elementOrDataWithElement)) {
@@ -196,7 +203,7 @@ const templateEngine = (function () {
                                 // are the oldElements and are they are the subRoot. (Which is the first layer of elements)
                                 if (instruction.subRoot && oldElements.length > 0) {
 
-                                    const isElement = app.utility.isElement; // get utility element validator
+                                    const isElement = utility.isElement; // get utility element validator
 
                                     // Remove old subRoot elements.
                                     for (let i = 0; i < oldElements.length; i++) {
