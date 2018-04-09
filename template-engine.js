@@ -67,14 +67,14 @@ const templateEngine = (function () {
                                     for (let i = 0; i < elementsOrDataWithElement.length; i++) {
                                         const elementOrDataWithElement = elementsOrDataWithElement[i];
                                         if (isElement(elementOrDataWithElement)) {
-                                            parent.append(elementOrDataWithElement);
+                                            parent.appendChild(elementOrDataWithElement);
                                             elementsWithData[elementsWithData.length] = {element: elementOrDataWithElement, data: data};
 
                                         } else if (typeof(elementsOrDataWithElement) == "object") {
                                             if (elementOrDataWithElement.element !== undefined) { // if DEFINED
                                                 if (isElement(elementOrDataWithElement.element)) {
                                                     elementsWithData[elementsWithData.length] = elementOrDataWithElement;
-                                                    parent.append(elementOrDataWithElement.element);
+                                                    parent.appendChild(elementOrDataWithElement.element);
                                                 }
                                             } else { // Just only for data
 
@@ -95,7 +95,7 @@ const templateEngine = (function () {
                             const newElement = document.createTextNode("div");
                             newElement.innerHTML += content;
                             newElement.setAttribute("template-engine-wrapper", true);
-                            parent.append(newElement);
+                            parent.appendChild(newElement);
                             return [{element: newElement, data: data}];
                         })();
 
@@ -108,7 +108,7 @@ const templateEngine = (function () {
                             if (content != undefined) {
                                 const newElement = document.createTextNode(content);
                                 parent.textContent = "";
-                                parent.append(newElement);
+                                parent.appendChild(newElement);
                                 return true;
                             }
                         })();
@@ -120,7 +120,7 @@ const templateEngine = (function () {
                             }
                             if (content != undefined) {
                                 const newElement = document.createElement(content);
-                                parent.append(newElement);
+                                parent.appendChild(newElement);
                                 return [{element: newElement, data: data}];
                             }
                         })();
