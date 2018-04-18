@@ -2,7 +2,7 @@
 
 First of al, this system/syntax really doesn't look like a template engine. Neither it will do just that. It is for you to judge what this suppose to be.
 
-[Source code](https://github.com/IIYAMA12/wafs/blob/master/app/static/scripts/template-engine.js)
+[Source code](template-engine.js)
 
 Lets get started with what it can do. (basics)
 
